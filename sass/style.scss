@@ -1,3 +1,57 @@
+%color-gradient
+{
+     color:linear-gradient(0deg,(147,86,220,.9),(255,121,218,.9));
+
+}
+
+
+%shadow-animation
+{
+    box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.75);
+    
+
+    &:hover
+        {
+        box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+        cursor:pointer; }
+    }
+
+
+%flex-row-center
+{
+    display:flex;
+    flex-direction: column;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+%BoutonType
+{
+width:50%;
+margin-left:auto;
+margin-right:auto;
+border-top-left-radius:50px;
+border-top-right-radius:50px;
+border-bottom-left-radius:50px;
+border-bottom-right-radius:50px;
+height:50px;
+color:white;
+background-image: linear-gradient(0deg,rgba(147,86,220,.9),rgba(255,121,218,.9));
+border:none;
+font-size:18px;
+@extend %shadow-animation;
+
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
 .imgheader
 {
     margin:auto;
@@ -39,59 +93,6 @@ text-decoration:none;
 color:black;
 }
 
-%color-gradient
-{
-     color:linear-gradient(0deg,(147,86,220,.9),(255,121,218,.9));
-
-}
-
-
-%shadow-animation
-{
-    box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.75);
-    
-
-    &:hover
-        {
-        box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-        cursor:pointer;
-            
-        
-        }
-
-}
-
-
-
-
-%flex-row-center
-{
-    display:flex;
-    flex-direction: column;
-    margin-left:auto;
-    margin-right:auto;
-
-}
-
-%BoutonType
-{
-width:50%;
-margin-left:auto;
-margin-right:auto;
-border-top-left-radius:50px;
-border-top-right-radius:50px;
-border-bottom-left-radius:50px;
-border-bottom-right-radius:50px;
-height:50px;
-color:white;
-background-image: linear-gradient(0deg,rgba(147,86,220,.9),rgba(255,121,218,.9));
-border:none;
-font-size:18px;
-@extend %shadow-animation;
-
-
-
-}
 
 
 .search-container
@@ -128,7 +129,7 @@ border-top-width:2px;
 }
 .search-title
 {
-width:50%;
+width:80%;
 margin-left:auto;
 margin-right:auto;
 font-size:30px;
@@ -137,7 +138,7 @@ font-size:30px;
 
 .search-instruction
 {
-width:60%;
+
 margin-left:auto;
 margin-right:auto;
 font-size:20px;
@@ -201,7 +202,7 @@ padding-right:30px;
 }
 .task:before {
 	content: counter(tache); /* on affiche le compteur */
-    padding: 4px  10px 10px ;;
+    padding: 6px  8px 7px ;;
     
     margin-right: 12px;
     margin-left:-10px;
@@ -209,7 +210,7 @@ padding-right:30px;
 	background-color:#9356dc;
 	border-radius: 100%;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 12px;
     color: white;
 }
 
@@ -244,6 +245,7 @@ margin-top:50px;
 height:auto;
 background-color:#e0dcdc57;
 z-index:1;
+padding-bottom:30px;
 }
 
 .rest
@@ -286,6 +288,18 @@ border-top-left-radius: 15px;
 border-top-right-radius:15px;
 }
 
+
+.etiquette
+{
+    
+    padding:5px;
+    background-color: #99E2D0;
+    position:relative;
+    top:-90%;
+    right:-75%;
+    color:rgb(2, 129, 87);
+    font-weight: bold;
+}
 .descript-restau
 {
 margin-left:15px;
@@ -303,7 +317,8 @@ font-size:25px;
 display:block;
 
 &:hover
-{opacity:0;}
+{opacity:0;
+}
     
 
 }
@@ -325,7 +340,8 @@ display:block;
     &:hover
     {
         opacity:initial;
-       
+
+        
         
         
          
@@ -341,7 +357,7 @@ display:block;
     background:rgba(24, 24, 24, 0.897);
     padding-top:20px;
     padding-bottom:20px;
-    margin-top:30px;
+    
 }
 
 .logofooter
@@ -408,7 +424,10 @@ border-top-right-radius:25px;
 margin-top:-25px;
 background-color:white;
 z-index:999;
+padding-bottom:30px;
 }
+
+
 
 .love
 {
@@ -446,6 +465,7 @@ margin-top:40px;
 margin-left:25px;
 }
 
+
 .choix
 {
     display:flex;
@@ -459,11 +479,43 @@ margin-left:25px;
     height:auto;
     margin-top:10px;
     @extend %shadow-animation;
-    &:hover
-{   .anim-choix{
-    width:50px;
-    opacity:initial;
-    transition-duration: 0.5s;
+ 
+
+
+        &:hover{   
+            .anim-choix{
+            width:50px;
+            opacity:initial;
+            transition-duration: 0.5s;
+                    }
+                }
+
+            
+}
+        
+.numero1
+{
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari et Chrome */
+    -o-animation: fadein 2s; /* Opera */   
+}
+
+.numero2
+{
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari et Chrome */
+    -o-animation: fadein 3s; /* Opera */   
+}
+
+
+.numero3
+{
+    animation: fadein 4s;
+    -moz-animation: fadein 4s; /* Firefox */
+    -webkit-animation: fadein  4s; /* Safari et Chrome */
+    -o-animation: fadein 4s; /* Opera */    
 }
 .check-circle
 {
@@ -471,8 +523,8 @@ margin-left:25px;
     transition-duration:0.5s;
     
 }
-}
-}
+
+
 
 .prix
 {

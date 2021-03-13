@@ -1,4 +1,61 @@
 @charset "UTF-8";
+.search-button, .commander, .task, .container, .choix {
+  -webkit-box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+.search-button:hover, .commander:hover, .task:hover, .container:hover, .choix:hover {
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+
+.menus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-button, .commander {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  height: 50px;
+  color: white;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(147, 86, 220, 0.9)), to(rgba(255, 121, 218, 0.9)));
+  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
+  border: none;
+  font-size: 18px;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .imgheader {
   margin: auto;
   width: 30%;
@@ -37,45 +94,6 @@ header {
 a {
   text-decoration: none;
   color: black;
-}
-
-.search-button, .commander, .task, .container, .choix {
-  -webkit-box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.75);
-          box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.75);
-}
-
-.search-button:hover, .commander:hover, .task:hover, .container:hover, .choix:hover {
-  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
-          box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
-  cursor: pointer;
-}
-
-.menus {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.search-button, .commander {
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-  height: 50px;
-  color: white;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(147, 86, 220, 0.9)), to(rgba(255, 121, 218, 0.9)));
-  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
-  border: none;
-  font-size: 18px;
 }
 
 .search-container {
@@ -200,6 +218,7 @@ ol {
   height: auto;
   background-color: #e0dcdc57;
   z-index: 1;
+  padding-bottom: 30px;
 }
 
 .container {
@@ -228,6 +247,8 @@ ol {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
+
+
 
 .descript-restau {
   margin-left: 15px;
@@ -272,7 +293,6 @@ ol {
   background: rgba(24, 24, 24, 0.897);
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-top: 30px;
 }
 
 .logofooter {
@@ -322,6 +342,7 @@ ol {
   margin-top: -25px;
   background-color: white;
   z-index: 999;
+  padding-bottom: 30px;
 }
 
 .love {
@@ -381,7 +402,37 @@ h3 {
           transition-duration: 0.5s;
 }
 
-.choix:hover .check-circle {
+.numero1 {
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  /* Firefox */
+  -webkit-animation: fadein 2s;
+  /* Safari et Chrome */
+  -o-animation: fadein 2s;
+  /* Opera */
+}
+
+.numero2 {
+  animation: fadein 3s;
+  -moz-animation: fadein 3s;
+  /* Firefox */
+  -webkit-animation: fadein 3s;
+  /* Safari et Chrome */
+  -o-animation: fadein 3s;
+  /* Opera */
+}
+
+.numero3 {
+  animation: fadein 4s;
+  -moz-animation: fadein 4s;
+  /* Firefox */
+  -webkit-animation: fadein  4s;
+  /* Safari et Chrome */
+  -o-animation: fadein 4s;
+  /* Opera */
+}
+
+.check-circle {
   -webkit-transform: rotate(360deg);
           transform: rotate(360deg);
   -webkit-transition-duration: 0.5s;
