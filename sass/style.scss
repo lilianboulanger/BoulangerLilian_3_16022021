@@ -200,7 +200,7 @@ body
 width:auto;
 height:auto;
 margin:0;
-
+font-family: 'Roboto', sans-serif;
 
 }
 
@@ -238,7 +238,7 @@ padding-bottom:60px;
 height:auto;
 margin-left:0px;
 margin-right:0px;
-background-color:rgb(235, 233, 233);
+background-color:#e0dcdc57;
 text-align:center;
 
 }
@@ -574,7 +574,7 @@ height:auto;
 border-top-left-radius: 25px;
 border-top-right-radius:25px;
 margin-top:-25px;
-background-color:white;
+background-color:#f3f3f3;
 z-index:10;
 padding-bottom:30px;
 }
@@ -619,7 +619,8 @@ animation: fadein 5.5s;
 -moz-animation: fadein 5.5s; /* Firefox */
 -webkit-animation: fadein 5.5s; /* Safari et Chrome */
 -o-animation: fadein 5.5s; /* Opera */   
-
+font-size:18px;
+font-weight:400;
 }
 
 .menu-plat
@@ -629,7 +630,9 @@ margin-left:25px;
 animation: fadein 7.5s;
 -moz-animation: fadein 7.5s; /* Firefox */
 -webkit-animation: fadein 7.5s; /* Safari et Chrome */
--o-animation: fadein 7.5s; /* Opera */   
+-o-animation: fadein 7.5s; /* Opera */
+font-size:18px;   
+font-weight:400;
 }
 
 .menu-dessert
@@ -639,21 +642,59 @@ margin-left:25px;
 animation: fadein 9.5s;
 -moz-animation: fadein 9.5s; /* Firefox */
 -webkit-animation: fadein 9.5s; /* Safari et Chrome */
--o-animation: fadein 9.5s; /* Opera */   
+-o-animation: fadein 9.5s; /* Opera */  
+font-size:18px; 
+font-weight:400;
 }
 
+
+.barre-entree
+{
+width:12%;
+border:2px solid #99E2D0;
+margin-left:25px;
+margin-top:-10px;
+animation: fadein 5.5s;
+-moz-animation: fadein 5.5s; /* Firefox */
+-webkit-animation: fadein 5.5s; /* Safari et Chrome */
+-o-animation: fadein 5.5s; /* Opera */
+}
+
+
+.barre-plat
+{
+width:12%;
+border:2px solid #99E2D0;
+margin-left:25px;
+margin-top:-10px;
+animation: fadein 7.5s;
+-moz-animation: fadein 7.5s; /* Firefox */
+-webkit-animation: fadein 7.5s; /* Safari et Chrome */
+-o-animation: fadein 7.5s; /* Opera */
+}
+
+.barre-dessert
+{
+width:12%;
+border:2px solid #99E2D0;
+margin-left:25px;
+margin-top:-10px;
+animation: fadein 9.5s;
+-moz-animation: fadein 9.5s; /* Firefox */
+-webkit-animation: fadein 9.5s; /* Safari et Chrome */
+-o-animation: fadein 9.5s; /* Opera */ 
+}
 .choix
 {
     display:flex;
     flex-direction:row;
-    border:1px solid black;
     margin-left:auto;
     margin-right:auto;
     width:100%;
     line-height:20px;
     border-radius:15px;
     height:auto;
-    width:80%;
+    width:90%;
     margin-top:10px;
     @extend %shadow-animation;
  
@@ -703,7 +744,13 @@ animation: fadein 9.5s;
     -o-animation: fadein 7s; /* Opera */    
 }
 
-
+.numero3b
+{
+    animation: fadein 7.2s;
+    -moz-animation: fadein 7.2s; /* Firefox */
+    -webkit-animation: fadein  7.2s; /* Safari et Chrome */
+    -o-animation: fadein 7.2s; /* Opera */    
+}
 
 .numero4
 {
@@ -825,8 +872,8 @@ margin-bottom:0px;
 
 {
 padding-left:10px;
-
-margin-top:-15px;
+font-size:12px;
+margin-top:-20px;
 text-overflow:ellipsis;
 white-space:nowrap;
 overflow:hidden;
