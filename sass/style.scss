@@ -10,7 +10,7 @@
     box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.75);
     
 
-    &:hover
+    &:hover 
         {
         box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
         cursor:pointer; }
@@ -29,6 +29,8 @@
 %BoutonType
 {
 width:50%;
+z-index:10;
+
 margin-left:auto;
 margin-right:auto;
 border-top-left-radius:50px;
@@ -44,14 +46,145 @@ font-size:18px;
 
 }
 
-@keyframes fadein {
-    from {
+@keyframes fadein{
+    0% {
         opacity:0;
+        z-index:999;
     }
-    to {
+
+50% {
+        opacity:0;
+        z-index:999;
+    }
+
+    80% {
+        opacity:0;
+        z-index:999;
+    }
+
+    90% {
+        opacity:0.5;
+        z-index:999;
+    }
+
+
+    100% {
         opacity:1;
+        z-index:0;
+    
     }
 }
+
+
+
+
+
+@keyframes fadeout {
+    0% {
+        opacity:1;
+        z-index:999;
+    }
+
+50% {
+        opacity:1;
+        z-index:999;
+    }
+
+    95% {
+        opacity:0.5;
+        z-index:999;
+    }
+
+    98% {
+        opacity:0.2;
+        z-index:999;
+    }
+
+
+    100% {
+        opacity:0;
+        z-index:0;
+    
+    }
+}
+
+
+
+                                            /*Loader*/
+
+.wrapper
+{
+animation: fadeout 5s;
+-moz-animation: fadeout 5; /* Firefox */
+-webkit-animation: fadeout  5s; /* Safari et Chrome */
+-o-animation: fadeout 5s; /* Opera */    
+                                                
+}
+
+
+                                            
+
+
+
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+    background-color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:fixed;
+    z-index:0;
+    opacity:0;
+    background:linear-gradient(0deg,rgba(147,86,220,1),rgba(255,121,218,1));
+    pointer-events: none
+    
+    
+  }
+  
+  .loader{
+    position: relative;
+    width: 40%;
+    
+    &:before{
+      content: "";
+      padding-top: 100%;
+      display: block;
+    }
+    
+    &__animated{
+      clip-path: inset(100% 0 0 0);
+      animation: loader 3s ease-in infinite;
+    }
+    
+    img{
+      width: 60%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      z-index:0;
+    }
+  }
+  
+  @keyframes loader{
+    0%{
+     clip-path: inset(100% 0 0 0);
+     
+    }
+    50%{
+     clip-path: inset(0 0 0 0);
+    }
+    100%{
+     clip-path: inset(100% 0 0 0 0);
+     
+    }
+    }
+   
+
+
+
 .imgheader
 {
     margin:auto;
@@ -85,12 +218,14 @@ margin-top:30px;
 margin-left:30px;
 font-size:20px;
 color:black;
+z-index:1;
 }
 
 a
 {
 text-decoration:none;
 color:black;
+z-index:1;
 }
 
 
@@ -148,14 +283,19 @@ color:rgb(117, 116, 116);
 .search-button
 {
 @extend %BoutonType;
+
 }
 
-
+button
+{
+z-index:10;
+}
 .fonctionnement
 {
 width:100%;
 display:flex;
 flex-direction:column;
+z-index:15;
 }
 
 .fonc
@@ -164,6 +304,7 @@ width:auto;
 margin-top:50px;
 height:auto;
 padding-left:40px;
+z-index:15;
 }
 
 
@@ -313,11 +454,21 @@ float:right;
 margin-top:-40px;
 position:relative;;
 margin-right:50px;
-font-size:25px;
+font-size:23px;
 display:block;
+background:black;
+    -webkit-background-clip:text;
+    background-clip: text;
+    color:transparent;
+    display:block;
+    opacity:1;
+    border:none;
 
 &:hover
 {opacity:0;
+    color:transparent;
+    background-image: linear-gradient(0deg,rgba(147,86,220,.9),rgba(255,121,218,.9));
+    display:none;
 }
     
 
@@ -326,20 +477,21 @@ display:block;
 .checked
 {
     float:right;
-    margin-top:-40px;
+    margin-top:-41.5px;
     position:relative;;
-    margin-right:50px;
+    margin-right:49px;
     font-size:25px;
-    background-image: linear-gradient(0deg,rgba(147,86,220,.9),rgba(255,121,218,.9));
+    background-image: linear-gradient(0deg,rgba(147,86,220,1),rgba(255,121,218,1));
     -webkit-background-clip:text;
     background-clip: text;
     color:transparent;
-    display:block;
+    display:none;
     opacity:0;
     border:none;
     &:hover
     {
         opacity:initial;
+        display:block;
 
         
         
@@ -423,7 +575,7 @@ border-top-left-radius: 25px;
 border-top-right-radius:25px;
 margin-top:-25px;
 background-color:white;
-z-index:999;
+z-index:10;
 padding-bottom:30px;
 }
 
@@ -459,12 +611,36 @@ margin-left:25px;
 }
 
 
-h3
+.menu-entree
 {
 margin-top:40px;  
 margin-left:25px;
+animation: fadein 5.5s;
+-moz-animation: fadein 5.5s; /* Firefox */
+-webkit-animation: fadein 5.5s; /* Safari et Chrome */
+-o-animation: fadein 5.5s; /* Opera */   
+
 }
 
+.menu-plat
+{
+margin-top:40px;  
+margin-left:25px;
+animation: fadein 7.5s;
+-moz-animation: fadein 7.5s; /* Firefox */
+-webkit-animation: fadein 7.5s; /* Safari et Chrome */
+-o-animation: fadein 7.5s; /* Opera */   
+}
+
+.menu-dessert
+{
+margin-top:40px;  
+margin-left:25px;
+animation: fadein 9.5s;
+-moz-animation: fadein 9.5s; /* Firefox */
+-webkit-animation: fadein 9.5s; /* Safari et Chrome */
+-o-animation: fadein 9.5s; /* Opera */   
+}
 
 .choix
 {
@@ -473,10 +649,11 @@ margin-left:25px;
     border:1px solid black;
     margin-left:auto;
     margin-right:auto;
-    width:90%;
+    width:100%;
     line-height:20px;
     border-radius:15px;
     height:auto;
+    width:80%;
     margin-top:10px;
     @extend %shadow-animation;
  
@@ -484,39 +661,101 @@ margin-left:25px;
 
         &:hover{   
             .anim-choix{
-            width:50px;
+            width:100%;
+            
             opacity:initial;
             transition-duration: 0.5s;
                     }
+          .descriptif{
+              width:60%;
+          }
+          .prix{
+              width:20%;
+          }
                 }
+
 
             
 }
         
 .numero1
 {
-    animation: fadein 2s;
-    -moz-animation: fadein 2s; /* Firefox */
-    -webkit-animation: fadein 2s; /* Safari et Chrome */
-    -o-animation: fadein 2s; /* Opera */   
+    animation: fadein 6s;
+    -moz-animation: fadein 6s; /* Firefox */
+    -webkit-animation: fadein 6s; /* Safari et Chrome */
+    -o-animation: fadein 6s; /* Opera */   
 }
 
 .numero2
 {
-    animation: fadein 3s;
-    -moz-animation: fadein 3s; /* Firefox */
-    -webkit-animation: fadein 3s; /* Safari et Chrome */
-    -o-animation: fadein 3s; /* Opera */   
+    animation: fadein 6.5s;
+    -moz-animation: fadein 6.5s; /* Firefox */
+    -webkit-animation: fadein 6.5s; /* Safari et Chrome */
+    -o-animation: fadein 6.5s; /* Opera */   
 }
 
 
 .numero3
 {
-    animation: fadein 4s;
-    -moz-animation: fadein 4s; /* Firefox */
-    -webkit-animation: fadein  4s; /* Safari et Chrome */
-    -o-animation: fadein 4s; /* Opera */    
+    animation: fadein 7s;
+    -moz-animation: fadein 7s; /* Firefox */
+    -webkit-animation: fadein  7s; /* Safari et Chrome */
+    -o-animation: fadein 7s; /* Opera */    
 }
+
+
+
+.numero4
+{
+    animation: fadein 8s;
+    -moz-animation: fadein 8s; /* Firefox */
+    -webkit-animation: fadein  8s; /* Safari et Chrome */
+    -o-animation: fadein 8s; /* Opera */    
+}
+
+.numero5
+{
+    animation: fadein 8.5s;
+    -moz-animation: fadein 8.5s; /* Firefox */
+    -webkit-animation: fadein  8.5s; /* Safari et Chrome */
+    -o-animation: fadein 8.5s; /* Opera */    
+}
+
+.numero6
+{
+    animation: fadein 9s;
+    -moz-animation: fadein 9s; /* Firefox */
+    -webkit-animation: fadein  9s; /* Safari et Chrome */
+    -o-animation: fadein 9s; /* Opera */    
+}
+
+.numero7
+{
+    animation: fadein 10s;
+    -moz-animation: fadein 10s; /* Firefox */
+    -webkit-animation: fadein  10s; /* Safari et Chrome */
+    -o-animation: fadein 10s; /* Opera */    
+}
+
+.numero8
+{
+    animation: fadein 10.5s;
+    -moz-animation: fadein 10.5s; /* Firefox */
+    -webkit-animation: fadein  10.5s; /* Safari et Chrome */
+    -o-animation: fadein 10.5s; /* Opera */    
+}
+
+
+.numero9
+{
+    animation: fadein 11s;
+    -moz-animation: fadein 11s; /* Firefox */
+    -webkit-animation: fadein  11s; /* Safari et Chrome */
+    -o-animation: fadein 11s; /* Opera */    
+}
+
+
+
 .check-circle
 {
     transform:rotate(360deg);
@@ -524,7 +763,10 @@ margin-left:25px;
     
 }
 
-
+.descriptif
+{
+    width:80%;
+}
 
 .prix
 {
@@ -534,6 +776,8 @@ margin-right:0;
 margin-left:auto;
 display:flex;
 flex-direction:row;
+width:10%;
+
 }
 
 
@@ -544,7 +788,7 @@ flex-direction:row;
 .anim-choix
 {
 
-width:5px;
+width:10%;
 opacity:0;
 background:#99E2D0;
 border-top-right-radius: 15px;
@@ -570,6 +814,9 @@ font-size:20px;
 padding-left:10px;
 width:100%;
 margin-top:5px;
+text-overflow:ellipsis;
+white-space:nowrap;
+overflow:hidden;
 
 margin-bottom:0px;
 }
@@ -578,8 +825,11 @@ margin-bottom:0px;
 
 {
 padding-left:10px;
-width:100%;
+
 margin-top:-15px;
+text-overflow:ellipsis;
+white-space:nowrap;
+overflow:hidden;
 
 }
 

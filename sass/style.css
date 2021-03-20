@@ -24,6 +24,7 @@
 
 .search-button, .commander {
   width: 50%;
+  z-index: 10;
   margin-left: auto;
   margin-right: auto;
   border-top-left-radius: 50px;
@@ -39,20 +40,184 @@
 }
 
 @-webkit-keyframes fadein {
-  from {
+  0% {
     opacity: 0;
+    z-index: 999;
   }
-  to {
+  50% {
+    opacity: 0;
+    z-index: 999;
+  }
+  80% {
+    opacity: 0;
+    z-index: 999;
+  }
+  90% {
+    opacity: 0.5;
+    z-index: 999;
+  }
+  100% {
     opacity: 1;
+    z-index: 0;
   }
 }
 
 @keyframes fadein {
-  from {
+  0% {
     opacity: 0;
+    z-index: 999;
   }
-  to {
+  50% {
+    opacity: 0;
+    z-index: 999;
+  }
+  80% {
+    opacity: 0;
+    z-index: 999;
+  }
+  90% {
+    opacity: 0.5;
+    z-index: 999;
+  }
+  100% {
     opacity: 1;
+    z-index: 0;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  0% {
+    opacity: 1;
+    z-index: 999;
+  }
+  50% {
+    opacity: 1;
+    z-index: 999;
+  }
+  95% {
+    opacity: 0.5;
+    z-index: 999;
+  }
+  98% {
+    opacity: 0.2;
+    z-index: 999;
+  }
+  100% {
+    opacity: 0;
+    z-index: 0;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+    z-index: 999;
+  }
+  50% {
+    opacity: 1;
+    z-index: 999;
+  }
+  95% {
+    opacity: 0.5;
+    z-index: 999;
+  }
+  98% {
+    opacity: 0.2;
+    z-index: 999;
+  }
+  100% {
+    opacity: 0;
+    z-index: 0;
+  }
+}
+
+/*Loader*/
+.wrapper {
+  animation: fadeout 5s;
+  -moz-animation: fadeout 5;
+  /* Firefox */
+  -webkit-animation: fadeout  5s;
+  /* Safari et Chrome */
+  -o-animation: fadeout 5s;
+  /* Opera */
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  z-index: 0;
+  opacity: 0;
+  background: -webkit-gradient(linear, left bottom, left top, from(#9356dc), to(#ff79da));
+  background: linear-gradient(0deg, #9356dc, #ff79da);
+  pointer-events: none;
+}
+
+.loader {
+  position: relative;
+  width: 40%;
+}
+
+.loader:before {
+  content: "";
+  padding-top: 100%;
+  display: block;
+}
+
+.loader__animated {
+  -webkit-clip-path: inset(100% 0 0 0);
+          clip-path: inset(100% 0 0 0);
+  -webkit-animation: loader 3s ease-in infinite;
+          animation: loader 3s ease-in infinite;
+}
+
+.loader img {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+@-webkit-keyframes loader {
+  0% {
+    -webkit-clip-path: inset(100% 0 0 0);
+            clip-path: inset(100% 0 0 0);
+  }
+  50% {
+    -webkit-clip-path: inset(0 0 0 0);
+            clip-path: inset(0 0 0 0);
+  }
+  100% {
+    -webkit-clip-path: inset(100% 0 0 0 0);
+            clip-path: inset(100% 0 0 0 0);
+  }
+}
+
+@keyframes loader {
+  0% {
+    -webkit-clip-path: inset(100% 0 0 0);
+            clip-path: inset(100% 0 0 0);
+  }
+  50% {
+    -webkit-clip-path: inset(0 0 0 0);
+            clip-path: inset(0 0 0 0);
+  }
+  100% {
+    -webkit-clip-path: inset(100% 0 0 0 0);
+            clip-path: inset(100% 0 0 0 0);
   }
 }
 
@@ -89,11 +254,13 @@ header {
   margin-left: 30px;
   font-size: 20px;
   color: black;
+  z-index: 1;
 }
 
 a {
   text-decoration: none;
   color: black;
+  z-index: 1;
 }
 
 .search-container {
@@ -122,18 +289,21 @@ a {
 }
 
 .search-title {
-  width: 50%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   font-size: 30px;
 }
 
 .search-instruction {
-  width: 60%;
   margin-left: auto;
   margin-right: auto;
   font-size: 20px;
   color: #757474;
+}
+
+button {
+  z-index: 10;
 }
 
 .fonctionnement, .restaurants {
@@ -145,6 +315,7 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  z-index: 15;
 }
 
 .fonc, .rest {
@@ -152,6 +323,7 @@ a {
   margin-top: 50px;
   height: auto;
   padding-left: 40px;
+  z-index: 15;
 }
 
 ol {
@@ -195,14 +367,14 @@ ol {
 .task:before {
   content: counter(tache);
   /* on affiche le compteur */
-  padding: 4px  10px 10px;
+  padding: 6px  8px 7px;
   margin-right: 12px;
   margin-left: -10px;
   vertical-align: middle;
   background-color: #9356dc;
   border-radius: 100%;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 12px;
   color: white;
 }
 
@@ -248,7 +420,15 @@ ol {
   border-top-right-radius: 15px;
 }
 
-
+.etiquette {
+  padding: 5px;
+  background-color: #99E2D0;
+  position: relative;
+  top: -90%;
+  right: -75%;
+  color: #028157;
+  font-weight: bold;
+}
 
 .descript-restau {
   margin-left: 15px;
@@ -259,32 +439,44 @@ ol {
   margin-top: -40px;
   position: relative;
   margin-right: 50px;
-  font-size: 25px;
+  font-size: 23px;
   display: block;
-}
-
-.blank:hover {
-  opacity: 0;
-}
-
-.checked {
-  float: right;
-  margin-top: -40px;
-  position: relative;
-  margin-right: 50px;
-  font-size: 25px;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(147, 86, 220, 0.9)), to(rgba(255, 121, 218, 0.9)));
-  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
+  background: black;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   display: block;
+  opacity: 1;
+  border: none;
+}
+
+.blank:hover {
+  opacity: 0;
+  color: transparent;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(147, 86, 220, 0.9)), to(rgba(255, 121, 218, 0.9)));
+  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
+  display: none;
+}
+
+.checked {
+  float: right;
+  margin-top: -41.5px;
+  position: relative;
+  margin-right: 49px;
+  font-size: 25px;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#9356dc), to(#ff79da));
+  background-image: linear-gradient(0deg, #9356dc, #ff79da);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: none;
   opacity: 0;
   border: none;
 }
 
 .checked:hover {
   opacity: initial;
+  display: block;
 }
 
 .footer_container {
@@ -341,7 +533,7 @@ ol {
   border-top-right-radius: 25px;
   margin-top: -25px;
   background-color: white;
-  z-index: 999;
+  z-index: 10;
   padding-bottom: 30px;
 }
 
@@ -372,9 +564,40 @@ ol {
   margin-left: 25px;
 }
 
-h3 {
+.menu-entree {
   margin-top: 40px;
   margin-left: 25px;
+  animation: fadein 5.5s;
+  -moz-animation: fadein 5.5s;
+  /* Firefox */
+  -webkit-animation: fadein 5.5s;
+  /* Safari et Chrome */
+  -o-animation: fadein 5.5s;
+  /* Opera */
+}
+
+.menu-plat {
+  margin-top: 40px;
+  margin-left: 25px;
+  animation: fadein 7.5s;
+  -moz-animation: fadein 7.5s;
+  /* Firefox */
+  -webkit-animation: fadein 7.5s;
+  /* Safari et Chrome */
+  -o-animation: fadein 7.5s;
+  /* Opera */
+}
+
+.menu-dessert {
+  margin-top: 40px;
+  margin-left: 25px;
+  animation: fadein 9.5s;
+  -moz-animation: fadein 9.5s;
+  /* Firefox */
+  -webkit-animation: fadein 9.5s;
+  /* Safari et Chrome */
+  -o-animation: fadein 9.5s;
+  /* Opera */
 }
 
 .choix {
@@ -388,47 +611,116 @@ h3 {
   border: 1px solid black;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  width: 100%;
   line-height: 20px;
   border-radius: 15px;
   height: auto;
+  width: 80%;
   margin-top: 10px;
 }
 
 .choix:hover .anim-choix {
-  width: 50px;
+  width: 100%;
   opacity: initial;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
 }
 
+.choix:hover .descriptif {
+  width: 60%;
+}
+
+.choix:hover .prix {
+  width: 20%;
+}
+
 .numero1 {
-  animation: fadein 2s;
-  -moz-animation: fadein 2s;
+  animation: fadein 6s;
+  -moz-animation: fadein 6s;
   /* Firefox */
-  -webkit-animation: fadein 2s;
+  -webkit-animation: fadein 6s;
   /* Safari et Chrome */
-  -o-animation: fadein 2s;
+  -o-animation: fadein 6s;
   /* Opera */
 }
 
 .numero2 {
-  animation: fadein 3s;
-  -moz-animation: fadein 3s;
+  animation: fadein 6.5s;
+  -moz-animation: fadein 6.5s;
   /* Firefox */
-  -webkit-animation: fadein 3s;
+  -webkit-animation: fadein 6.5s;
   /* Safari et Chrome */
-  -o-animation: fadein 3s;
+  -o-animation: fadein 6.5s;
   /* Opera */
 }
 
 .numero3 {
-  animation: fadein 4s;
-  -moz-animation: fadein 4s;
+  animation: fadein 7s;
+  -moz-animation: fadein 7s;
   /* Firefox */
-  -webkit-animation: fadein  4s;
+  -webkit-animation: fadein  7s;
   /* Safari et Chrome */
-  -o-animation: fadein 4s;
+  -o-animation: fadein 7s;
+  /* Opera */
+}
+
+.numero4 {
+  animation: fadein 8s;
+  -moz-animation: fadein 8s;
+  /* Firefox */
+  -webkit-animation: fadein  8s;
+  /* Safari et Chrome */
+  -o-animation: fadein 8s;
+  /* Opera */
+}
+
+.numero5 {
+  animation: fadein 8.5s;
+  -moz-animation: fadein 8.5s;
+  /* Firefox */
+  -webkit-animation: fadein  8.5s;
+  /* Safari et Chrome */
+  -o-animation: fadein 8.5s;
+  /* Opera */
+}
+
+.numero6 {
+  animation: fadein 9s;
+  -moz-animation: fadein 9s;
+  /* Firefox */
+  -webkit-animation: fadein  9s;
+  /* Safari et Chrome */
+  -o-animation: fadein 9s;
+  /* Opera */
+}
+
+.numero7 {
+  animation: fadein 10s;
+  -moz-animation: fadein 10s;
+  /* Firefox */
+  -webkit-animation: fadein  10s;
+  /* Safari et Chrome */
+  -o-animation: fadein 10s;
+  /* Opera */
+}
+
+.numero8 {
+  animation: fadein 10.5s;
+  -moz-animation: fadein 10.5s;
+  /* Firefox */
+  -webkit-animation: fadein  10.5s;
+  /* Safari et Chrome */
+  -o-animation: fadein 10.5s;
+  /* Opera */
+}
+
+.numero9 {
+  animation: fadein 11s;
+  -moz-animation: fadein 11s;
+  /* Firefox */
+  -webkit-animation: fadein  11s;
+  /* Safari et Chrome */
+  -o-animation: fadein 11s;
   /* Opera */
 }
 
@@ -437,6 +729,10 @@ h3 {
           transform: rotate(360deg);
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
+}
+
+.descriptif {
+  width: 80%;
 }
 
 .prix {
@@ -449,6 +745,7 @@ h3 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  width: 10%;
 }
 
 .prix p {
@@ -456,7 +753,7 @@ h3 {
 }
 
 .anim-choix {
-  width: 5px;
+  width: 10%;
   opacity: 0;
   background: #99E2D0;
   border-top-right-radius: 15px;
@@ -475,13 +772,18 @@ h3 {
   padding-left: 10px;
   width: 100%;
   margin-top: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   margin-bottom: 0px;
 }
 
 .composition {
   padding-left: 10px;
-  width: 100%;
   margin-top: -15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .choix-menu {
